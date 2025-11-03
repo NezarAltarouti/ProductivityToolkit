@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+
 export default defineConfig({
+  base: '/ProductivityToolkit/',  // ← ADD THIS LINE
   plugins: [react()],
   server: {
     port: 3000,
@@ -10,5 +12,6 @@ export default defineConfig({
     target: 'esnext',
     minify: 'terser',
     cssCodeSplit: true,
+    outDir: 'dist',  // ← ENSURE THIS
   },
 })
