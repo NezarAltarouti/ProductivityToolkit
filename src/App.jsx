@@ -15,7 +15,7 @@ function App() {
   const [mounted, setMounted] = useState(false)
   const [showWelcome, setShowWelcome] = useState(true)
 
-  // Initialize dark mode from localStorage and system preference
+  // Initialize dark mode and language from localStorage
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode')
     let isDark = false
@@ -35,6 +35,13 @@ function App() {
     }
 
     setDarkMode(isDark)
+
+    // Initialize language from localStorage
+    const savedLanguage = localStorage.getItem('language')
+    if (savedLanguage !== null) {
+      setLanguage(savedLanguage)
+    }
+
     setMounted(true)
   }, [])
 
@@ -47,6 +54,11 @@ function App() {
     }
     localStorage.setItem('darkMode', JSON.stringify(darkMode))
   }, [darkMode])
+
+  // Save language preference to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem('language', language)
+  }, [language])
 
   const navigateTo = (page) => setCurrentPage(page)
   
