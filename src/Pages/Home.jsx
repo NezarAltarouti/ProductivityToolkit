@@ -1,9 +1,10 @@
 import { Sun, Moon, Globe } from 'lucide-react'
+import { useMemo } from 'react'
 import ServiceCard from '../components/ServiceCard'
 import Header from '../components/Header'
 
 const Home = ({ navigateTo, darkMode, toggleDarkMode, language, toggleLanguage }) => {
-  const quotes = [
+  const quotes = useMemo(() => [
     {
       ar: 'النجاح لا يأتي بين عشية وضحاها، بل هو ثمرة التخطيط والعمل الجاد',
       en: 'Success does not come overnight, but is the fruit of planning and hard work',
@@ -104,9 +105,12 @@ const Home = ({ navigateTo, darkMode, toggleDarkMode, language, toggleLanguage }
       en: 'Clear goals and specific plans are the true path to success',
       author: 'مجهول / Unknown',
     },
-  ]
+  ], [])
 
-  const currentQuote = quotes[Math.floor(Math.random() * quotes.length)]
+  // Memoize the current quote selection so it doesn't change on re-renders
+  const currentQuote = useMemo(() => {
+    return quotes[Math.floor(Math.random() * quotes.length)]
+  }, [quotes])
 
   const services = [
     {
