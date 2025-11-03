@@ -329,7 +329,7 @@ const Home = ({
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M7 16V4m0 0L1 10m6-6l6 6m6-6v12m0 0l6-6m-6 6l-6-6"
+                    d="M7 17L17 7m0 0H7m10 0v10"
                   />
                 </svg>
               </a>
