@@ -24,7 +24,32 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: [
+          'Inter',
+          'Segoe UI',
+          'Roboto',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'system-ui',
+          'sans-serif'
+        ],
+        ar: [
+          'Cairo',
+          'Almarai',
+          'Droid Arabic Kufi',
+          'Arabic Typesetting',
+          'Segoe UI',
+          'system-ui',
+          'sans-serif'
+        ],
+        display: [
+          'Poppins',
+          'Inter',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'system-ui',
+          'sans-serif'
+        ],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

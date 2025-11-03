@@ -6,13 +6,14 @@ import TodoList from './pages/TodoList'
 import CreateSchedule from './pages/CreateSchedule'
 import Notes from './pages/Notes'
 import SWOTModel from './pages/SWOTModel'
-import JohariWindow from './pages/JohariWindow'
+import WelcomeAnimation from './Components/WelcomeAnimation'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
   const [darkMode, setDarkMode] = useState(false)
   const [language, setLanguage] = useState('ar')
   const [mounted, setMounted] = useState(false)
+  const [showWelcome, setShowWelcome] = useState(true)
 
   // Initialize dark mode from localStorage and system preference
   useEffect(() => {
@@ -64,8 +65,24 @@ function App() {
     toggleLanguage,
   }
 
-  return (
-    <div dir={language === 'ar' ? 'rtl' : 'ltr'} className={darkMode ? 'dark' : ''}>
+  // Determine font class based on language
+  const fontClass = language === 'ar' ? 'font-ar' : 'font-sans'
+
+return (
+    <div 
+      dir={language === 'ar' ? 'rtl' : 'ltr'} 
+      className={`${darkMode ? 'dark' : ''} ${fontClass}`}
+      lang={language === 'ar' ? 'ar' : 'en'}
+    >
+      {/* Welcome Animation */}
+      {showWelcome && (
+        <WelcomeAnimation
+          onComplete={() => setShowWelcome(false)}
+          darkMode={darkMode}
+          language={language}
+        />
+      )}
+
       {currentPage === 'home' && <Home {...commonProps} />}
       {currentPage === 'eisenhower' && <EisenhowerMatrix {...commonProps} />}
       {currentPage === 'pomodoro' && <Pomodoro {...commonProps} />}
@@ -73,9 +90,7 @@ function App() {
       {currentPage === 'schedule' && <CreateSchedule {...commonProps} />}
       {currentPage === 'notes' && <Notes {...commonProps} />}
       {currentPage === 'swot' && <SWOTModel {...commonProps} />}
-      {currentPage === 'johari' && <JohariWindow {...commonProps} />}
     </div>
-  )
-}
+  )}
 
 export default App

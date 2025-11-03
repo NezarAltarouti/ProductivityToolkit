@@ -4,6 +4,10 @@
 
 :root {
   color-scheme: light;
+  /* Font rendering optimization */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html.dark {
@@ -13,6 +17,9 @@ html.dark {
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Global font smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   * {
@@ -28,6 +35,54 @@ html.dark {
 
   body {
     @apply antialiased;
+    /* Apply modern font stack based on language */
+    font-family: 'Inter', 'Segoe UI', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+  }
+
+  /* Arabic text optimization */
+  [dir="rtl"] body,
+  html[lang^="ar"] body {
+    font-family: 'Cairo', 'Almarai', 'Droid Arabic Kufi', 'Arabic Typesetting', system-ui, sans-serif;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  /* Arabic headings */
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5,
+  [dir="rtl"] h6,
+  html[lang^="ar"] h1,
+  html[lang^="ar"] h2,
+  html[lang^="ar"] h3,
+  html[lang^="ar"] h4,
+  html[lang^="ar"] h5,
+  html[lang^="ar"] h6 {
+    font-family: 'Cairo', 'Almarai', system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  /* Smooth button text */
+  button {
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
@@ -122,4 +177,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 .animate-slide-in-right {
   animation: slideInFromRight 0.5s ease-out;
+}
+
+/* Additional text rendering optimization */
+@supports (font-variant-numeric: tabular-nums) {
+  body {
+    font-variant-numeric: tabular-nums;
+  }
 }

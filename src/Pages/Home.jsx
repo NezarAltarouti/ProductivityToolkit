@@ -24,6 +24,86 @@ const Home = ({ navigateTo, darkMode, toggleDarkMode, language, toggleLanguage }
       en: 'Each new day is a new opportunity for success',
       author: 'رالف مارستون / Ralph Marston',
     },
+    {
+      ar: 'الأشياء العظيمة لا تحدث بالصدفة، بل بالتخطيط والعمل المستمر',
+      en: 'Great things never come from comfort zones',
+      author: 'أوبرا وينفري / Oprah Winfrey',
+    },
+    {
+      ar: 'لا تنتظر الفرصة المثالية، بل اصنعها بنفسك',
+      en: 'Don\'t wait for opportunity, create it',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'التركيز على مهمة واحدة أفضل من تشتت الانتباه بألف مهمة',
+      en: 'Focus on one task at a time is better than thousand scattered tasks',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'الإنجاز يبدأ برغبة قوية وتصميم ثابت',
+      en: 'Achievement starts with a strong desire and firm determination',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'كل دقيقة تنفقها بحكمة هي استثمار في مستقبلك',
+      en: 'Every minute you spend wisely is an investment in your future',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'النجاح ليس الوصول إلى الهدف، بل الطريق الذي تسلكه للوصول إليه',
+      en: 'Success is not reaching the goal, but the journey you take to reach it',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'الانضباط هو الفرق بين من يحلم وبين من ينجح',
+      en: 'Discipline is the difference between dreamers and achievers',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'إدارة وقتك بذكاء تعني إدارة حياتك بذكاء',
+      en: 'Managing your time wisely means managing your life wisely',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'لا تؤجل ما يمكن أن تفعله اليوم إلى غد',
+      en: 'Don\'t postpone what you can do today until tomorrow',
+      author: 'بنجامين فرانكلين / Benjamin Franklin',
+    },
+    {
+      ar: 'الأولويات الواضحة تقودك إلى الإنجازات الحقيقية',
+      en: 'Clear priorities lead you to real achievements',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'كل خطوة صغيرة نحو هدفك هي انتصار تستحق الاحتفال',
+      en: 'Every small step towards your goal is a victory worth celebrating',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'المثابرة والاستمرار أهم من السرعة',
+      en: 'Persistence and consistency are more important than speed',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'أنت المسؤول الوحيد عن إنجازاتك وفشلك',
+      en: 'You are the only person responsible for your success and failure',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'الحياة المنظمة هي حياة ناجحة',
+      en: 'An organized life is a successful life',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'ابدأ الآن ولا تنتظر الوقت المناسب، فالوقت المناسب هو الآن',
+      en: 'Start now and don\'t wait for the right time, the right time is now',
+      author: 'مجهول / Unknown',
+    },
+    {
+      ar: 'الأهداف الواضحة والخطط المحددة هي طريق النجاح الحقيقي',
+      en: 'Clear goals and specific plans are the true path to success',
+      author: 'مجهول / Unknown',
+    },
   ]
 
   const currentQuote = quotes[Math.floor(Math.random() * quotes.length)]
@@ -76,14 +156,6 @@ const Home = ({ navigateTo, darkMode, toggleDarkMode, language, toggleLanguage }
       arDescription: 'حلل نقاط قوتك وضعفك',
       enDescription: 'Analyze your strengths and weaknesses',
       icon: '🎯',
-    },
-    {
-      id: 'johari',
-      arName: 'نافذة جوهاري',
-      enName: 'Johari Window',
-      arDescription: 'فهم ذاتك بشكل أعمق',
-      enDescription: 'Understand yourself better',
-      icon: '🪟',
     },
   ]
 
@@ -138,22 +210,22 @@ const Home = ({ navigateTo, darkMode, toggleDarkMode, language, toggleLanguage }
           </div>
 
           {/* Quote Section - Fixed Height Container */}
-          <div className={`mb-16 md:mb-20 p-6 md:p-8 rounded-2xl shadow-lg backdrop-blur-sm min-h-[180px] flex flex-col justify-center ${
+          <div className={`mb-16 md:mb-20 p-8 md:p-12 lg:p-16 rounded-3xl shadow-lg backdrop-blur-sm min-h-[280px] md:min-h-[320px] flex flex-col justify-center ${
             darkMode
               ? 'bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-700/50'
               : 'bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200'
           }`}>
-            <h2 className={`text-lg md:text-xl font-bold mb-4 text-center ${
+            <h2 className={`text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center ${
               darkMode ? 'text-indigo-300' : 'text-blue-600'
             }`}>
               ✨ {t.quote}
             </h2>
-            <p className={`text-base md:text-lg italic mb-4 text-center leading-relaxed ${
-              darkMode ? 'text-gray-200' : 'text-gray-700'
+            <p className={`text-xl md:text-3xl lg:text-4xl italic mb-6 md:mb-8 text-center leading-relaxed font-medium ${
+              darkMode ? 'text-gray-100' : 'text-gray-800'
             }`}>
               "{language === 'ar' ? currentQuote.ar : currentQuote.en}"
             </p>
-            <p className={`text-right md:text-center font-semibold ${
+            <p className={`text-lg md:text-xl text-right md:text-center font-semibold ${
               darkMode ? 'text-indigo-400' : 'text-blue-700'
             }`}>
               — {currentQuote.author}
