@@ -2,7 +2,7 @@ const ServiceCard = ({ service, navigateTo, darkMode, language }) => {
   return (
     <button
       onClick={() => navigateTo(service.id)}
-      className={`group relative p-6 md:p-8 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
+      className={`group relative p-6 md:p-8 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden h-full flex flex-col ${
         darkMode
           ? 'bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 hover:border-indigo-500 text-white'
           : 'bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-blue-500 text-gray-900'
@@ -15,27 +15,27 @@ const ServiceCard = ({ service, navigateTo, darkMode, language }) => {
           : 'bg-gradient-to-r from-blue-500/10 to-purple-500/10'
       } opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
-      {/* Content */}
-      <div className="relative z-10">
+      {/* Content - Flex column to push arrow to bottom */}
+      <div className="relative z-10 flex flex-col h-full">
         {/* Icon */}
-        <div className="text-5xl md:text-6xl mb-4">
+        <div className="text-5xl md:text-6xl mb-4 leading-none">
           {service.icon}
         </div>
 
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-bold mb-2 text-left">
+        <h3 className="text-xl md:text-2xl font-bold mb-2">
           {language === 'ar' ? service.arName : service.enName}
         </h3>
 
         {/* Description */}
-        <p className={`text-sm md:text-base mb-4 text-left leading-relaxed ${
+        <p className={`text-sm md:text-base mb-6 leading-relaxed flex-grow ${
           darkMode ? 'text-gray-300' : 'text-gray-600'
         }`}>
           {language === 'ar' ? service.arDescription : service.enDescription}
         </p>
 
-        {/* Arrow */}
-        <div className={`inline-block px-4 py-2 rounded-lg transition-all duration-300 ${
+        {/* Arrow - Positioned at bottom */}
+        <div className={`inline-flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-300 ${
           darkMode
             ? 'bg-indigo-600/30 group-hover:bg-indigo-600 text-indigo-300 group-hover:text-white'
             : 'bg-blue-100 group-hover:bg-blue-600 text-blue-600 group-hover:text-white'

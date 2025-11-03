@@ -3,7 +3,6 @@ import Home from './pages/Home'
 import EisenhowerMatrix from './pages/EisenhowerMatrix'
 import Pomodoro from './pages/Pomodoro'
 import TodoList from './pages/TodoList'
-import CreateSchedule from './pages/CreateSchedule'
 import Notes from './pages/Notes'
 import SWOTModel from './pages/SWOTModel'
 import WelcomeAnimation from './Components/WelcomeAnimation'
@@ -99,7 +98,6 @@ return (
       {currentPage === 'eisenhower' && <EisenhowerMatrix {...commonProps} />}
       {currentPage === 'pomodoro' && <Pomodoro {...commonProps} />}
       {currentPage === 'todo' && <TodoList {...commonProps} />}
-      {currentPage === 'schedule' && <CreateSchedule {...commonProps} />}
       {currentPage === 'notes' && <Notes {...commonProps} />}
       {currentPage === 'swot' && <SWOTModel {...commonProps} />}
     </div>
