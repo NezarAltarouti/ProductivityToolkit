@@ -269,13 +269,77 @@ const Home = ({ navigateTo, darkMode, toggleDarkMode, language, toggleLanguage }
           ? 'border-gray-700 bg-gray-900/50'
           : 'border-gray-200 bg-white/50'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className={`text-sm md:text-base ${
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Made By Text - Bold */}
+          <p className={`text-center text-sm md:text-base mb-6 font-bold ${
             darkMode ? 'text-gray-400' : 'text-gray-600'
           }`}>
             {language === 'ar'
-              ? '© 2024 مساعدك الشخصي. جميع الحقوق محفوظة.'
-              : '© 2024 Your Personal Assistant. All rights reserved.'}
+              ? 'طور من قبل نزار التاروتي'
+              : 'Made by Nezar Altarouti'}
+          </p>
+
+          {/* Social Links */}
+          <div className="flex justify-center items-center gap-6 md:gap-8 mb-4">
+            {/* Website Link with Diagonal Arrow */}
+            <a
+              href="https://sf.iau.edu.sa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`transition-all duration-300 hover:scale-110 ${
+                darkMode
+                  ? 'text-gray-400 hover:text-indigo-400'
+                  : 'text-gray-600 hover:text-blue-600'
+              }`}
+              title={language === 'ar' ? 'الموقع الإلكتروني' : 'Website'}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+
+            {/* LinkedIn Link */}
+            <a
+              href="https://www.linkedin.com/company/studentfellowship/posts/?feedView=all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`transition-all duration-300 hover:scale-110 ${
+                darkMode
+                  ? 'text-gray-400 hover:text-blue-400'
+                  : 'text-gray-600 hover:text-blue-600'
+              }`}
+              title="LinkedIn"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+              </svg>
+            </a>
+
+            {/* X (Twitter) Link */}
+            <a
+              href="https://x.com/sf_fellowship?t=R9rZdbDy9yHWZaCnjpXbHA&s=09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`transition-all duration-300 hover:scale-110 ${
+                darkMode
+                  ? 'text-gray-400 hover:text-gray-200'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+              title="X"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.637l-5.104-6.66-5.835 6.66H2.556l7.73-8.835L1.75 2.25h6.822l4.607 6.114 5.289-6.114zM16.777 19.932h1.833L5.946 4.046H4.033l12.744 15.886z"/>
+              </svg>
+            </a>
+          </div>
+
+          {/* Social Media Text - NOT Bold */}
+          <p className={`text-center text-sm md:text-base ${
+            darkMode ? 'text-gray-400' : 'text-gray-600'
+          }`}>
+            {language === 'ar'
+              ? 'وسائل التواصل الاجتماعي لبرنامج الزمالة الطلابية'
+              : 'Social Media for Student Fellowship Program'}
           </p>
         </div>
       </footer>
