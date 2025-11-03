@@ -296,16 +296,45 @@ const Home = ({
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Developed by Text - Bold */}
-          <p
+          {/* Developed by Text - Bold with LinkedIn Link */}
+          <div
             className={`text-center text-sm md:text-base mb-6 font-bold ${
               darkMode ? "text-gray-400" : "text-gray-600"
             }`}
           >
-            {language === "ar"
-              ? "طور من قبل نزار التاروتي"
-              : "Developed by Nezar Altarouti"}
-          </p>
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <span>
+                {language === "ar"
+                  ? "طور من قبل نزار التاروتي"
+                  : "Developed by Nezar Altarouti"}
+              </span>
+              <a
+                href="https://www.linkedin.com/in/nezaraltarouti/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`transition-all duration-300 hover:scale-110 inline-flex items-center ${
+                  darkMode
+                    ? "text-indigo-400 hover:text-indigo-300"
+                    : "text-blue-600 hover:text-blue-700"
+                }`}
+                title={language === "ar" ? "ملف ليندكن الشخصي" : "LinkedIn Profile"}
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M7 16V4m0 0L1 10m6-6l6 6m6-6v12m0 0l6-6m-6 6l-6-6"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
 
           {/* Social Links */}
           <div className="flex justify-center items-center gap-6 md:gap-8 mb-4">
