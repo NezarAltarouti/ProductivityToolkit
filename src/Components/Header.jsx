@@ -2,7 +2,7 @@ import { Sun, Moon, Globe } from 'lucide-react'
 
 const Header = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
       darkMode
         ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-700'
         : 'bg-white/95 backdrop-blur-md border-b border-gray-200'
@@ -20,7 +20,7 @@ const Header = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className={`px-2 py-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-1.5 h-10 ${
+            className={`px-3 sm:px-3 py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-1.5 h-10 w-10 sm:w-auto ${
               darkMode
                 ? 'bg-gray-800 hover:bg-gray-700 text-yellow-400'
                 : 'bg-gray-100 hover:bg-gray-200 text-blue-600'
@@ -30,7 +30,7 @@ const Header = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
             <div className="flex items-center justify-center">
               <Globe size={16} />
             </div>
-            <span className="hidden sm:inline text-xs md:text-sm font-medium flex items-center">
+            <span className="hidden sm:inline text-xs md:text-sm font-medium">
               {language === 'ar' ? 'EN' : 'AR'}
             </span>
           </button>
@@ -38,7 +38,7 @@ const Header = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
-            className={`p-2 rounded-lg transition-all duration-300 ${
+            className={`px-3 sm:px-3 py-2 rounded-lg transition-all duration-200 h-10 w-10 sm:w-10 flex items-center justify-center ${
               darkMode
                 ? 'bg-gray-800 hover:bg-gray-700 text-yellow-400'
                 : 'bg-gray-100 hover:bg-gray-200 text-blue-600'

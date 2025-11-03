@@ -12,17 +12,48 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home')
   const [darkMode, setDarkMode] = useState(false)
   const [language, setLanguage] = useState('ar')
+  const [mounted, setMounted] = useState(false)
 
+  // Initialize dark mode from localStorage and system preference
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem('darkMode')
+    let isDark = false
+
+    if (savedDarkMode !== null) {
+      isDark = JSON.parse(savedDarkMode)
+    } else {
+      // Use system preference if nothing is saved
+      isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    }
+
+    // Apply immediately to DOM before React renders
+    if (isDark) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+
+    setDarkMode(isDark)
+    setMounted(true)
+  }, [])
+
+  // Update DOM immediately when darkMode state changes
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')
     }
+    localStorage.setItem('darkMode', JSON.stringify(darkMode))
   }, [darkMode])
 
   const navigateTo = (page) => setCurrentPage(page)
-  const toggleDarkMode = () => setDarkMode(!darkMode)
+  
+  // Toggle dark mode - updates state which triggers useEffect to update DOM
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+  
   const toggleLanguage = () => setLanguage(language === 'ar' ? 'en' : 'ar')
 
   const commonProps = {
