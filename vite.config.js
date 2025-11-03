@@ -1,17 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: '/ProductivityToolkit/', 
+  base: "/ProductivityToolkit/",
   plugins: [react()],
   server: {
     port: 3000,
     open: true,
   },
   build: {
-    target: 'esnext',
-    minify: 'terser',
+    target: "esnext",
+    minify: "terser",
     cssCodeSplit: true,
-    outDir: 'dist',  
+    outDir: "dist",
   },
-})
+});
